@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* ACTUAL Aptolix Light Theme Colors from Image */
+    --background: #F3EEFF;     /* The soft lavender-white background */
+    --foreground: #0F172A;     /* Dark navy text */
+    
+    /* Gradient Start/End */
+    --primary-start: #7C3AED;  /* Vibrant Purple */
+    --primary-end: #4F46E5;    /* Deep Indigo */
+    
+    --accent: #FFFFFF;
+  }
+
+  .dark {
+    /* Acta.ai Dark Theme Colors */
+    --background: #0B0B0B;
+    --foreground: #FFFFFF;
+    --primary-start: #3B82F6; 
+    --primary-end: #1D4ED8;
+    --accent: #161616;
+  }
+@theme {
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 25s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+}
+@theme {
+  /* ... existing marquee code ... */
+}
+
+.pause-marquee {
+  animation-play-state: paused !important;
+}
+html {
+  scroll-behavior: smooth;
+} 
+
+  body {
+    /* Applying the soft lavender background to the whole page */
+    @apply bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300;
+  }
+}
