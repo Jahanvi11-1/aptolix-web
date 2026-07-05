@@ -27,15 +27,15 @@ const personas = [
 // This 'export default' fixes the SyntaxError in your App.jsx
 export default function ChatDemo() {
   const [activePersona, setActivePersona] = useState(personas[0]);
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([{ text: personas[0].prompt, isBot: true }]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef(null);
 
-  // Initialize chat when persona changes
-  useEffect(() => {
-    setMessages([{ text: activePersona.prompt, isBot: true }]);
-  }, [activePersona]);
+  const handlePersonaChange = (p) => {
+    setActivePersona(p);
+    setMessages([{ text: p.prompt, isBot: true }]);
+  };
 
   // Auto-scroll to latest message
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function ChatDemo() {
               {personas.map((p) => (
                 <button
                   key={p.name}
-                  onClick={() => setActivePersona(p)}
+                  onClick={() => handlePersonaChange(p)}
                   className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center gap-4 ${
                     activePersona.name === p.name 
                     ? 'bg-white dark:bg-white/10 border-[#7C3AED] shadow-lg scale-[1.02]' 

@@ -7,23 +7,23 @@ export default function Footer() {
   const footerLinks = {
     freeTools: [
       { name: "Live Chatbot Demo", href: "/chatbot-demo" },
-      { name: "Try AI Chatbot for Your Website", href: "#" },
-      { name: "vCard QR Generator", href: "#" }
+      { name: "Try AI Chatbot for Your Website", href: "/chatbot-demo" },
+      { name: "vCard QR Generator", href: "https://vcard.aptolix.com" }
     ],
     legalSupport: [
       { name: "Terms & Conditions", href: "#" },
       { name: "Privacy Policy", href: "#" },
       { name: "Refund Policy", href: "#" },
-      { name: "7-day money-back guarantee", href: "#" },
-      { name: "Contact Us", href: "#" }
+      { name: "7-day money-back guarantee", href: "#pricing" },
+      { name: "Contact Us", href: "#contact" }
     ],
     useCases: [
-      { name: "Customer Support (24/7)", href: "#" },
-      { name: "Lead Generation", href: "#" },
-      { name: "In-App Support", href: "#" },
-      { name: "Employee Assistant", href: "#" },
-      { name: "Answer FAQs", href: "#" },
-      { name: "Sales Support", href: "#" }
+      { name: "Customer Support (24/7)", href: "#use-cases" },
+      { name: "Lead Generation", href: "#use-cases" },
+      { name: "In-App Support", href: "#use-cases" },
+      { name: "Employee Assistant", href: "#use-cases" },
+      { name: "Answer FAQs", href: "#faqs" },
+      { name: "Sales Support", href: "#use-cases" }
     ]
   };
 
@@ -40,7 +40,7 @@ export default function Footer() {
                 <img 
                   src="/aptolix-logo.webp" 
                   alt="Aptolix" 
-                  className="h-20 w-auto object-contain" 
+                  className="h-12 w-auto object-contain"
                 />
               </Link>
             </div>
@@ -59,9 +59,15 @@ export default function Footer() {
               <ul className="space-y-4">
                 {footerLinks.freeTools.map((link, i) => (
                   <li key={i}>
-                    <Link to={link.href} className="text-sm font-medium text-gray-500 hover:text-[#7C3AED] dark:text-gray-400 dark:hover:text-white transition-colors">
-                      {link.name}
-                    </Link>
+                    {link.href.startsWith('http') ? (
+                      <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-gray-500 hover:text-[#7C3AED] dark:text-gray-400 dark:hover:text-white transition-colors">
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link to={link.href} className="text-sm font-medium text-gray-500 hover:text-[#7C3AED] dark:text-gray-400 dark:hover:text-white transition-colors">
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
