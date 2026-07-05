@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
+
 export default function Hero() {
   return (
-    <section className="relative pt-44 pb-20 px-6 overflow-hidden flex flex-col items-center text-center">
+    <section id="top" className="relative pt-44 pb-20 px-6 overflow-hidden flex flex-col items-center text-center">
       {/* 1. Background Glows (for depth) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-purple-300/20 dark:bg-purple-900/10 blur-[120px] rounded-full -z-10" />
       
@@ -18,12 +20,12 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <button className="group bg-gradient-to-r from-[#7C3AED] to-[#4F46E5] text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-xl shadow-purple-500/25 hover:scale-105 transition-all">
+          <a href="#contact" className="group bg-gradient-to-r from-[#7C3AED] to-[#4F46E5] text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-xl shadow-purple-500/25 hover:scale-105 transition-all">
             Book a Demo 📅
-          </button>
-          <button className="bg-white dark:bg-white/5 border-2 border-[#7C3AED] text-[#7C3AED] dark:text-purple-400 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-purple-50 dark:hover:bg-white/10 transition-all">
+          </a>
+          <Link to="/chatbot-demo" className="bg-white dark:bg-white/5 border-2 border-[#7C3AED] text-[#7C3AED] dark:text-purple-400 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-purple-50 dark:hover:bg-white/10 transition-all text-center">
             Try Demo Agent 🤖
-          </button>
+          </Link>
         </div>
       </div>
 

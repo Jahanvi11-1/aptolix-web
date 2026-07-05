@@ -22,7 +22,9 @@ export default function Home() {
         <FeatureFlow />
       </section>
 
-      <StepProcess />
+      <section id="process" className="scroll-mt-20">
+        <StepProcess />
+      </section>
 
       <section id="pricing" className="scroll-mt-20">
         <Pricing />
@@ -35,7 +37,10 @@ export default function Home() {
       <section id="faqs" className="scroll-mt-20">
         <FAQ />
       </section>
-      <ContactUs/>
+
+      <section id="contact" className="scroll-mt-20">
+        <ContactUs/>
+      </section>
       {/* You can add a contact ID to the Footer or a specific section if needed */}
     </main>
   );

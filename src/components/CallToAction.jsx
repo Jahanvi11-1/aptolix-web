@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function CallToAction() {
   return (
@@ -22,17 +23,17 @@ export default function CallToAction() {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             {/* Primary Action */}
-            <button className="group relative px-10 py-5 bg-gradient-to-r from-[#7C3AED] to-[#4F46E5] text-white rounded-2xl font-bold text-lg shadow-xl shadow-purple-500/25 hover:scale-105 active:scale-95 transition-all">
+            <a href="#contact" className="group relative px-10 py-5 bg-gradient-to-r from-[#7C3AED] to-[#4F46E5] text-white rounded-2xl font-bold text-lg shadow-xl shadow-purple-500/25 hover:scale-105 active:scale-95 transition-all">
               <span className="relative z-10 flex items-center gap-3">
                 📅 Book a Quick Signup Call
               </span>
               <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-            </button>
+            </a>
 
             {/* Secondary Action */}
-            <button className="px-10 py-5 bg-white dark:bg-white/5 border-2 border-[#7C3AED] text-[#7C3AED] dark:text-purple-400 rounded-2xl font-bold text-lg hover:bg-purple-50 dark:hover:bg-white/10 transition-all">
+            <Link to="/chatbot-demo" className="px-10 py-5 bg-white dark:bg-white/5 border-2 border-[#7C3AED] text-[#7C3AED] dark:text-purple-400 rounded-2xl font-bold text-lg hover:bg-purple-50 dark:hover:bg-white/10 transition-all text-center">
               Try Demo Agent 🤖
-            </button>
+            </Link>
           </div>
 
           <div className="mt-12 flex items-center justify-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all">

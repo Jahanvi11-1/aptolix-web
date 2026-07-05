@@ -66,13 +66,16 @@ export default function Pricing() {
               ))}
             </ul>
 
-            <button className={`w-full py-4 rounded-2xl font-bold transition-all ${
-              plan.highlight 
-              ? 'bg-gradient-to-r from-[#7C3AED] to-[#4F46E5] text-white hover:opacity-90' 
-              : 'bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10'
-            }`}>
+            <a
+              href="#contact"
+              className={`block w-full py-4 rounded-2xl font-bold text-center transition-all ${
+                plan.highlight
+                ? 'bg-gradient-to-r from-[#7C3AED] to-[#4F46E5] text-white hover:opacity-90'
+                : 'bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10'
+              }`}
+            >
               {plan.button}
-            </button>
+            </a>
           </div>
         ))}
       </div>

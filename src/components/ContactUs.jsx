@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function ContactUs() {
   const contactMethods = [
@@ -7,21 +8,24 @@ export default function ContactUs() {
       title: "Chat With Us",
       desc: "Try our 24/7 AI Chatbot for instant answers to most of your queries.",
       action: "Open Chatbot",
-      type: "primary"
+      type: "primary",
+      href: "/chatbot-demo"
     },
     {
       icon: "📅",
       title: "Book a Call",
       desc: "Want a live conversation? Schedule a 1:1 demo with our team.",
       action: "Schedule a call",
-      type: "link"
+      type: "link",
+      href: "https://calendly.com/aptolix"
     },
     {
       icon: "📧",
       title: "Email Support",
       desc: "Support: support@aptolix.com\nSales: connect@aptolix.com",
       action: "Send Email",
-      type: "link"
+      type: "link",
+      href: "mailto:support@aptolix.com"
     }
   ];
 
@@ -51,13 +55,23 @@ export default function ContactUs() {
                 {method.desc}
               </p>
               
-              <button className={`w-full py-4 rounded-2xl font-bold transition-all ${
-                method.type === 'primary' 
-                ? 'bg-[#7C3AED] text-white shadow-lg shadow-purple-500/25 hover:opacity-90' 
-                : 'border border-[#7C3AED] text-[#7C3AED] hover:bg-purple-50 dark:hover:bg-purple-900/10'
-              }`}>
-                {method.action}
-              </button>
+              {method.href.startsWith('/') ? (
+                <Link to={method.href} className={`block w-full py-4 rounded-2xl font-bold text-center transition-all ${
+                  method.type === 'primary'
+                  ? 'bg-[#7C3AED] text-white shadow-lg shadow-purple-500/25 hover:opacity-90'
+                  : 'border border-[#7C3AED] text-[#7C3AED] hover:bg-purple-50 dark:hover:bg-purple-900/10'
+                }`}>
+                  {method.action}
+                </Link>
+              ) : (
+                <a href={method.href} className={`block w-full py-4 rounded-2xl font-bold text-center transition-all ${
+                  method.type === 'primary'
+                  ? 'bg-[#7C3AED] text-white shadow-lg shadow-purple-500/25 hover:opacity-90'
+                  : 'border border-[#7C3AED] text-[#7C3AED] hover:bg-purple-50 dark:hover:bg-purple-900/10'
+                }`}>
+                  {method.action}
+                </a>
+              )}
             </div>
           ))}
         </div>
@@ -71,9 +85,9 @@ export default function ContactUs() {
               <p className="opacity-90">Message us directly for quick questions and updates.</p>
             </div>
           </div>
-          <button className="bg-white text-[#7C3AED] px-10 py-4 rounded-2xl font-black text-lg hover:scale-105 transition-transform">
+          <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" className="bg-white text-[#7C3AED] px-10 py-4 rounded-2xl font-black text-lg hover:scale-105 transition-transform text-center">
             Message us on WhatsApp
-          </button>
+          </a>
         </div>
 
         {/* Support Note */}
